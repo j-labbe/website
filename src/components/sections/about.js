@@ -18,11 +18,7 @@ const AboutStyle = styled.div`
 
         @media (max-width: 768px) {
             display: flex;
-            gap: 10px;
-            &:nth-child(1) {
-                margin-top: -20px;
-                margin-bottom: 50px;
-            }
+            margin-bottom:40px;
         }
     }
 `;
@@ -65,11 +61,10 @@ const StyledText = styled.div`
 
 const StyledPic = styled.div`
     position: relative;
-    max-width: 500px;
+    max-width: 600px;
 
     @media (max-width: 768px) {
-        margin: 50px auto 0;
-        width: 70%;
+        margin: 0 auto 40px;
     }
 
     .wrapper{
