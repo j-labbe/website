@@ -90,6 +90,7 @@ const StyledPic = styled.div`
     position: relative;
     max-width: 300px;
     border-radius: 25px;
+    will-change: transform;
 
     @media (max-width: 768px) {
         margin: 50px auto 0;
@@ -103,8 +104,9 @@ const StyledPic = styled.div`
         display: block;
         position: relative;
         width: 100%;
-        border-radius: 25px;
+        border-radius: inherit;
         background-color: transparent;
+        will-change: transform;
 
         &:hover,
         &:focus {
@@ -112,29 +114,33 @@ const StyledPic = styled.div`
             outline: 0;
             transform: scale(0.995);
             box-shadow: 0 20px 5px -15px rgba(2,12,27,0.7);
-            border-radius: 25px;
+            border-radius: inherit;
 
             &:after {
                 top: 15px;
                 left: 15px;
-                border-radius: 25px;
+                border-radius: inherit;
             }
             .img {
                 filter: none;
                 mix-blend-mode: normal;
-                border-radius: 25px;
+                border-radius: inherit;
+                will-change: transform;
             }
         }
         .img {
             position: relative;
-            border-radius: 25px;
+            border-radius: inherit;
             transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+            will-change: transform;
         }
         img{
-            border-radius: 25px;
+            border-radius: inherit;
+            will-change: transform;
         }
         picture{
-            border-radius: 25px;
+            border-radius: inherit;
+            will-change: transform;
         }
     }
 `;
@@ -173,8 +179,8 @@ const Hero = () => {
                                                     loading="eager"
                                                     fomats={['AUTO', 'WEBP', 'AVIF']}
                                                     alt="Headshot"
-                                                    style={{borderRadius:'25px'}}
-                                                    imgStyle={{borderRadius:'25px'}}
+                                                    style={{ borderRadius: '25px' }}
+                                                    imgStyle={{ borderRadius: '25px' }}
                                                 />
                                             </div>
                                         </StyledPic>
