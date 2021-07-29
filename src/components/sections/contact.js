@@ -2,11 +2,16 @@ import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import revealOnScroll from '../../utils/scrollReveal';
 import { scrollRevealConfig, email } from '../../config';
+import { contact } from '../../config';
 
 const ContactSection = styled.section`
     max-widith: 600px;
     margin: 0 auto 100px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     @media(max-width: 768px) {
         margin: 0 auto 50px;
@@ -56,6 +61,10 @@ const ContactSection = styled.section`
             display: none !important;
         }
     }
+    p{
+        max-width: 600px;
+        text-align: center;
+    }
 `;
 
 const Contact = () => {
@@ -66,9 +75,9 @@ const Contact = () => {
     return (
         <ContactSection id="contact" ref={revealContact}>
             <h2 className="overline">02. What's Next?</h2>
-            <h2 className="title">Get In Touch</h2>
+            <h2 className="title">{contact.heading}</h2>
             <p>
-                Feel free to inquire with any future opportunities, or just say hi.
+                {contact.blurb}
             </p>
             <a className="email-link" href={`mailto:${email}`}>Say Hello</a>
         </ContactSection>

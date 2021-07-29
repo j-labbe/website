@@ -48,9 +48,10 @@ module.exports = {
     about: {
         heading: 'About Me',
         bio: [
-            'Hey! My name is Jack. I enjoy building amazing projects that leave an impact on people. Technology has always come very easy to me, even from a young age. In 2015, I built my first computer and created my first web app.',
-            'While trying many different fields to figure out what interests me, I kept going back to tech and finance. I think both fields are fascinating.',
-            'In the summer of 2021, I had the chance to begin working on a big project for an (undisclosed) company. It made me step back and once again appreciate my passion for tech at a point when I was trying to figure out what I wanted to do. "Why not give it a shot?"',
+            'Hey! My name is Jack. I\'m a junior in college majoring in finance. From a young age computers have always come easy to me. In 2015 I built a computer and my first web app.',
+            'Fast forward to today, I\'m currently working on a data management web app for a multi-million dollar company out of Florida. The project has been an amazing learning experience.',
+            'There\'s a lot of software development that\'s being done, and being a one-man team, I\'m the one doing it all. I\'m grateful for this opportunity, as it\'s allowing me to explore a career in software engineering.',
+            'Feel free to check out different projects I work on as I post them here!',
             'Here are a few technologies I\'ve been using recently:'
         ],
         skills: [
@@ -61,6 +62,10 @@ module.exports = {
             'Microsoft Azure',
             'Docker'
         ]
+    },
+    contact: {
+        heading: 'Get In Touch',
+        blurb: 'My inbox is always open. Feel free to inquire with any projects you need help with, opportunities, or just to say hi!'
     },
     scrollRevealConfig: {
         origin: 'bottom',

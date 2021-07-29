@@ -53,7 +53,8 @@ const Credit = styled.div`
     font-size: 10px;
     line-height: 1;
     a{
-        padding: 10px;
+        text-decoration: none;
+        color: #233554;
     }
 `;
 
@@ -73,7 +74,7 @@ const Footer = () => {
                         }
                     </ul>
                 </SocialLinks>
-                <Credit>Design inspired by Brittany Chiang</Credit>
+                <Credit>Design inspired by <a href="https://github.com/bchiang7">Brittany Chiang</a></Credit>
             </FooterStyle>
     )
 };
