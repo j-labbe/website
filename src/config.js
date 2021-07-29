@@ -6,7 +6,7 @@ module.exports = {
             url: 'https://github.com/j-labbe'
         },
         {
-            name: 'Instragram',
+            name: 'Instagram',
             url: 'https://instagram.com/jack.labbe'
         },
         {
