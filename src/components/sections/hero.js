@@ -89,6 +89,7 @@ const HeroGridChild = styled.div`
 const StyledPic = styled.div`
     position: relative;
     max-width: 300px;
+    border-radius: 25px;
 
     @media (max-width: 768px) {
         margin: 50px auto 0;
@@ -111,14 +112,17 @@ const StyledPic = styled.div`
             outline: 0;
             transform: scale(0.995);
             box-shadow: 0 20px 5px -15px rgba(2,12,27,0.7);
+            border-radius: 25px;
 
             &:after {
                 top: 15px;
                 left: 15px;
+                border-radius: 25px;
             }
             .img {
                 filter: none;
                 mix-blend-mode: normal;
+                border-radius: 25px;
             }
         }
         .img {

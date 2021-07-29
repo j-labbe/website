@@ -47,7 +47,7 @@ const SocialLinks = styled.div`
 
 const Credit = styled.div`
     text-align: center;
-    max-width: 300px;
+    max-width: 400px;
     color: #233554;
     font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
     font-size: 10px;
