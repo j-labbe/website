@@ -9,7 +9,6 @@ import Contact from '../components/sections/contact';
 const IndexPage = ({ location }) => {
     return (
         <div className="fillHeight">
-            <AlertBar />
             <Layout location={location}>
                 <Hero />
                 <About />

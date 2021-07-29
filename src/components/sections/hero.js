@@ -162,6 +162,7 @@ const Hero = () => {
                                                     quality={95}
                                                     fomats={['AUTO', 'WEBP', 'AVIF']}
                                                     alt="Headshot"
+                                                    imgStyle={{borderRadius:'25px'}}
                                                 />
                                             </div>
                                         </StyledPic>

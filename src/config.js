@@ -39,7 +39,7 @@ module.exports = {
             text: 'Jack Labbe'
         },
         section3: {
-            text: 'Student.'
+            text: 'Student, freelance software engineer.'
         },
         section4: {
             text: 'I have a passion for delivering high-quality products that create a meaningful and impactful experience.'

@@ -5,7 +5,7 @@ import isSupported from '../utils/supportedBrowser';
 const StyledAlert = styled.div`
     position: fixed;
     top: 0;
-    max-height: 25px;
+    max-height: 30px;
     width: 100%;
     font-family: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
     font-size: 13px;
