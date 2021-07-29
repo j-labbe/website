@@ -6,3 +6,5 @@ description: This is a test
 ## Testing
 
 Testing the cms system for new posts.
+
+Testing the update feature.
