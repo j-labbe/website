@@ -126,6 +126,12 @@ const StyledPic = styled.div`
             border-radius: 25px;
             transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
         }
+        img{
+            border-radius: 25px;
+        }
+        picture{
+            border-radius: 25px;
+        }
     }
 `;
 
@@ -160,8 +166,10 @@ const Hero = () => {
                                                     src="../../assets/images/img/jack.jpeg"
                                                     width={500}
                                                     quality={95}
+                                                    loading="eager"
                                                     fomats={['AUTO', 'WEBP', 'AVIF']}
                                                     alt="Headshot"
+                                                    style={{borderRadius:'25px'}}
                                                     imgStyle={{borderRadius:'25px'}}
                                                 />
                                             </div>

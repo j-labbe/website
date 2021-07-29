@@ -3,7 +3,6 @@ import '../assets/styles/css/style.css';
 import Layout from '../components/layout';
 import About from '../components/sections/about';
 import Hero from '../components/sections/hero';
-import AlertBar from '../components/alertbar';
 import Contact from '../components/sections/contact';
 
 const IndexPage = ({ location }) => {
