@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { navLinks } from '../config';
 import { IconLogo } from '../assets/images';
-import Menu from './menu';
+import MobileNav from './mobilenav';
 
 const Header = styled.header`
     display: flex;
@@ -18,7 +18,7 @@ const Header = styled.header`
     padding: 0px 50px;
     width: 100%;
     height: 100px;
-    background-color: rgba(10, 25, 47, 0.85);
+    background-color: ${props => (props.isMounted ? `rgba(10, 25, 47, 0.75);` : 'transparent')};
     backdrop-filter: blur(10px);
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
     filter: none !important;
@@ -173,7 +173,7 @@ const Navigation = ({ isHome }) => {
 
 
     return (
-        <Header>
+        <Header isMounted={isMounted}>
             <Nav>
                 <TransitionGroup component={null}>
                     {isMounted && (
@@ -209,7 +209,7 @@ const Navigation = ({ isHome }) => {
                 <TransitionGroup component={null}>
                     {isMounted && (
                         <CSSTransition classNames={fadeClass} timeout={timeout}>
-                            <Menu />
+                            <MobileNav />
                         </CSSTransition>
                     )}
                 </TransitionGroup>

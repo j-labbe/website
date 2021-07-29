@@ -184,6 +184,8 @@ svg {
 
     &.feather {
         fill: none;
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -235,6 +237,77 @@ code {
     min-height: 100vh;
 }
 
+.numbered-heading {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 10px 0 40px;
+    width: 100%;
+    font-size: clamp(26px, 5vw, $f-heading);
+    white-space: nowrap;
+    &:before {
+        position: relative;
+        bottom: 4px;
+        counter-increment: section;
+        content: "0" counter(section) ".";
+        margin-right: 10px;
+        color: $green;
+        font-family: $font-mono;
+        font-size: clamp($f-m, 3vw, $f-xl);
+        font-weight: 400;
+        @media (max-width: 480px) {
+            margin-bottom: -3px;
+            margin-right: 5px;
+        }
+    }
+}
+
+.line{
+    position:relative;
+    border-bottom: 1px solid $slate;
+    width: 100%;
+    margin: 20px;
+    top: -5px;
+}
+
+#content {
+    padding: 0 100px 0 100px;
+}
+
+.hero-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.darkblur{
+    transition: $transition;
+
+    #content > * {
+        filter: blur(5px) brightness(0.6);
+        transition: $transition;
+        pointer-events: none;
+        user-select: none;
+    }
+}
+
+.customToast {
+    max-height: 100px!important;
+    max-width: 200px !important;
+    font-family: $f-sans;
+    color: $lightslate;
+    position:relative;
+    z-index: 100;
+}
+
+/****
+
+Transitions
+
+****/
+
 /* Fade */
 
 .fade-enter {
@@ -242,14 +315,14 @@ code {
 }
 .fade-enter-active {
     opacity: 1;
-    transition: opacity 300ms $easing;
+    transition: opacity 1500ms $easeOutCirc;
 }
 .fade-exit {
     opacity: 1;
 }
 .fade-exit-active {
     opacity: 0;
-    transition: opacity 300ms $easing;
+    transition: opacity 1500ms $easeOutCirc;
 }
 
 /* Fade Down */
@@ -257,12 +330,12 @@ code {
 .fadedown-enter {
     opacity: 0.01;
     transform: translateY(-20px);
-    transition: opacity 300ms $easing, transform 300ms $easing;
+    transition: opacity 1500ms $easeOutCirc, transform 1500ms $easeOutCirc;
 }
 .fadedown-enter-active {
     opacity: 1;
     transform: translateY(0px);
-    transition: opacity 300ms $easing, transform 300ms $easing;
+    transition: opacity 1500ms $easeOutCirc, transform 1500ms $easeOutCirc;
 }
 
 /* Fade Up */
@@ -270,10 +343,57 @@ code {
 .fadeup-enter {
     opacity: 0.01;
     transform: translateY(20px);
-    transition: opacity 300ms $easing, transform 300ms $easing;
+    transition: opacity 1500ms $easeOutCirc, transform 1500ms $easeOutCirc;
 }
 .fadeup-enter-active {
     opacity: 1;
     transform: translateY(0px);
-    transition: opacity 300ms $easing, transform 300ms $easing;
+    transition: opacity 1500ms $easeOutCirc, transform 1500ms $easeOutCirc;
+}
+
+/***
+
+FAST TRANSITIONS
+
+***/
+
+.fastfade-enter {
+    opacity: 0;
+}
+.fastfade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms $easeOutCirc;
+}
+.fastfade-exit {
+    opacity: 1;
+}
+.fastfade-exit-active {
+    opacity: 0;
+    transition: opacity 500ms $easeOutCirc;
+}
+
+/* Fade Down */
+
+.fastfadedown-enter {
+    opacity: 0.01;
+    transform: translateY(-20px);
+    transition: opacity 500ms $easeOutCirc, transform 500ms $easeOutCirc;
+}
+.fastfadedown-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 500ms $easeOutCirc, transform 500ms $easeOutCirc;
+}
+
+/* Fade Up */
+
+.fastfadeup-enter {
+    opacity: 0.01;
+    transform: translateY(20px);
+    transition: opacity 500ms $easeOutCirc, transform 500ms $easeOutCirc;
+}
+.fastfadeup-enter-active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: opacity 500ms $easeOutCirc, transform 500ms $easeOutCirc;
 }

@@ -32,8 +32,6 @@ const Loader = ({ onFinishLoad }) => {
     useEffect(() => {
         const animate = () => {
             anime.timeline({
-                loop: false,
-                direction: 'alternate',
                 complete: () => onFinishLoad()
             }).add({
                 targets: '#circle path',

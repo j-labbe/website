@@ -349,6 +349,71 @@ code {
   min-height: 100vh;
 }
 
+.numbered-heading {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0 40px;
+  width: 100%;
+  font-size: clamp(26px, 5vw, 30px);
+  white-space: nowrap;
+}
+
+.numbered-heading:before {
+  position: relative;
+  bottom: 4px;
+  counter-increment: section;
+  content: "0" counter(section) ".";
+  margin-right: 10px;
+  color: #64ffda;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-size: clamp(16px, 3vw, 20px);
+  font-weight: 400;
+}
+
+@media (max-width: 480px) {
+  .numbered-heading:before {
+    margin-bottom: -3px;
+    margin-right: 5px;
+  }
+}
+
+.line {
+  position: relative;
+  border-bottom: 1px solid #8892b0;
+  width: 100%;
+  margin: 20px;
+  top: -5px;
+}
+
+#content {
+  padding: 0 100px 0 100px;
+}
+
+.hero-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.darkblur {
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.darkblur #content > * {
+  filter: blur(5px) brightness(0.6);
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  pointer-events: none;
+  user-select: none;
+}
+
+/****
+
+Transitions
+
+****/
 /* Fade */
 .fade-enter {
   opacity: 0;
@@ -356,7 +421,7 @@ code {
 
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1500ms cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 .fade-exit {
@@ -365,33 +430,82 @@ code {
 
 .fade-exit-active {
   opacity: 0;
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1500ms cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 /* Fade Down */
 .fadedown-enter {
   opacity: 0.01;
   transform: translateY(-20px);
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1500ms cubic-bezier(0, 0.55, 0.45, 1), transform 1500ms cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 .fadedown-enter-active {
   opacity: 1;
   transform: translateY(0px);
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1500ms cubic-bezier(0, 0.55, 0.45, 1), transform 1500ms cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 /* Fade Up */
 .fadeup-enter {
   opacity: 0.01;
   transform: translateY(20px);
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1500ms cubic-bezier(0, 0.55, 0.45, 1), transform 1500ms cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 .fadeup-enter-active {
   opacity: 1;
   transform: translateY(0px);
-  transition: opacity 300ms cubic-bezier(0.645, 0.045, 0.355, 1), transform 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: opacity 1500ms cubic-bezier(0, 0.55, 0.45, 1), transform 1500ms cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+/***
+
+FAST TRANSITIONS
+
+***/
+.fastfade-enter {
+  opacity: 0;
+}
+
+.fastfade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+.fastfade-exit {
+  opacity: 1;
+}
+
+.fastfade-exit-active {
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+/* Fade Down */
+.fastfadedown-enter {
+  opacity: 0.01;
+  transform: translateY(-20px);
+  transition: opacity 500ms cubic-bezier(0, 0.55, 0.45, 1), transform 500ms cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+.fastfadedown-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 500ms cubic-bezier(0, 0.55, 0.45, 1), transform 500ms cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+/* Fade Up */
+.fastfadeup-enter {
+  opacity: 0.01;
+  transform: translateY(20px);
+  transition: opacity 500ms cubic-bezier(0, 0.55, 0.45, 1), transform 500ms cubic-bezier(0, 0.55, 0.45, 1);
+}
+
+.fastfadeup-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 500ms cubic-bezier(0, 0.55, 0.45, 1), transform 500ms cubic-bezier(0, 0.55, 0.45, 1);
 }
 
 .loader-backdrop {
@@ -414,6 +528,7 @@ code {
   justify-content: center;
   width: max-content;
   max-width: 120px;
+  opacity: 0;
 }
 
 .loader-container svg {

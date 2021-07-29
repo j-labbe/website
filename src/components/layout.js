@@ -3,6 +3,7 @@ import Loader from './loader';
 import Head from './head';
 import Navigation from './navigation';
 import { Helmet } from 'react-helmet';
+import Footer from './footer';
 
 if (typeof window !== 'undefined') {
     require('smooth-scroll')('a[href*="#"]');
@@ -37,6 +38,7 @@ const Layout = ({ children, location }) => {
                         <Navigation isHome={isHome} />
                         <div id="content">
                             {children}
+                            <Footer />
                         </div>
                     </div>
                 )}
