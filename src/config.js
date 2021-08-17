@@ -39,10 +39,10 @@ module.exports = {
             text: 'Jack Labbe'
         },
         section3: {
-            text: 'Student, freelance software engineer.'
+            text: 'I build things that create meanigful experiences and leave lasting impressions.'
         },
         section4: {
-            text: 'I have a passion for delivering high-quality products that create a meaningful and impactful experience.'
+            text: ''
         }
     },
     about: {
@@ -56,7 +56,7 @@ module.exports = {
         ],
         skills: [
             'JavaScript (ES6+)',
-            'SCSS',
+            'TypeScript',
             'Node.js',
             'React',
             'Microsoft Azure',
@@ -71,7 +71,7 @@ module.exports = {
         origin: 'bottom',
         distance: '20px',
         duration: 500,
-        delay: 200,
+        delay: 300,
         rotate: { x: 0, y: 0, z: 0 },
         opacity: 0,
         scale: 1,

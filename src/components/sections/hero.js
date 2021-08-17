@@ -44,7 +44,7 @@ const HeroSection = styled.div`
         text-decoration: none;
         cursor: pointer;
         transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-        margin-top: 50px;
+        margin-top: 40px;
         
         &:hover,
         &:focus,
@@ -155,7 +155,7 @@ const Hero = () => {
     const top = <h1>{hero.section1.text}</h1>;
     const middle = <h2 className="big-heading">{hero.section2.text}</h2>;
     const bottom = <p className="medium-heading">{hero.section3.text}</p>;
-    const more = <p className="medium-heading">{hero.section4.text}</p>
+    const more = hero.section4.text ? (<p className="medium-heading">{hero.section4.text}</p>) : '';
     const cta = <a href={`mailto:${email}`} className="cta-btn">Get In Touch</a>;
 
     const elements = [top, middle, bottom, more, cta];
