@@ -39,7 +39,7 @@ module.exports = {
             text: 'Jack Labbe'
         },
         section3: {
-            text: 'I build things that create meanigful experiences and leave lasting impressions.'
+            text: 'I build things that create meaningful experiences and leave lasting impressions.'
         },
         section4: {
             text: ''
