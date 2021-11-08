@@ -26,6 +26,10 @@ module.exports = {
         {
             name: 'Contact',
             url: '/#contact'
+        },
+        {
+            name: 'Book a Meeting',
+            url: 'https://appointmentthing.com/jacklabbe/meeting'
         }
     ],
     hero: {
