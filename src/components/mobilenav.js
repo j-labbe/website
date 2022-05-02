@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { navLinks } from '../config';
 import { Link } from 'gatsby';
 import useOnClickOutside from '../utils/useOnClickOutside';
+import { Spin as Hamburger } from 'hamburger-react';
 
 const StyledMenu = styled.div`
     display: none;
@@ -13,63 +14,21 @@ const StyledMenu = styled.div`
 `;
 
 // https://codepen.io/djuangrm/pen/oNxjggN
-const StyledHamburgerButton = styled.button`
+const StyledHamburgerButton = styled.div`
     display: none;
     border: none !important;
     outline: none !important;
     @media(max-width: 768px) {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
         position:relative;
         z-index: 12;
-        margin-right: -15px;
-        padding: 15px;
-        color: inherit;
+        color: #8892b0;
         background-color: transparent;
     }
-
-.wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-}
-
-.hamburger-menu-button {
-  position: relative;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: none !important;
-  outline: none !important;
-}
-
-.hamburger-menu,
-.hamburger-menu::after {
-  height: calc(0.125 * 32px);
-  border-radius: calc(0.15 * 32px);
-  background-color: #a8b2d1;
-  transition: all 0.25s ease-in-out;
-}
-.hamburger-menu {
-  width: calc(0.75 * 32px);
-  transform: ${props => (props.menuOpen ? `translateY(0px) rotate(45deg)` : `translateY(calc(-0.125 * 32px))`)};
-}
-.hamburger-menu::after {
-  position: absolute;
-  left: 0;
-  width: ${props => (props.menuOpen ? `calc(0.75 * 32px)` : `calc(0.375 * 32px)`)};
-  transform: ${props => (props.menuOpen ? `translateY(0px) rotate(-90deg)` : `translateY(calc(0.25 * 32px))`)};
-  content: '';
-}
 `;
 
 const StyledSidebar = styled.aside`
@@ -86,7 +45,7 @@ const StyledSidebar = styled.aside`
         width: min(75vw, 400px);
         height: 100vh;
         outline: 0;
-        background-color: #112240;
+        background-color: #13203d;
         box-shadow: -10px 0px 30px -15px rgba(2,12,27,0.7);
         z-index: 9;
         transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
@@ -100,7 +59,7 @@ const StyledSidebar = styled.aside`
         align-items: center;
         width: 100%;
         flex-direction: column;
-        color: #ccd6f6;
+        color: #8892b0;
         font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
         text-align: center;
     }
@@ -237,7 +196,7 @@ const MobileNav = () => {
             document.removeEventListener('keydown', onKeyDown);
             window.removeEventListener('resize', onResize);
         }
-    },[]);
+    }, []);
 
     const wrapperRef = useRef();
     useOnClickOutside(wrapperRef, () => setMenuOpen(false));
@@ -248,24 +207,23 @@ const MobileNav = () => {
                 <body className={menuOpen ? ' loaded darkblur' : ' loaded'} />
             </Helmet>
             <div ref={wrapperRef}>
-                <StyledHamburgerButton onClick={toggleMenu}
-                    menuOpen={menuOpen}
-                    ref={buttonRef}
-                    aria-label="Menu" className="wrapper">
-                    <div className="hamburger-menu-button">
-                        <div className="hamburger-menu" />
-                    </div>
+                <StyledHamburgerButton>
+                    <Hamburger toggled={menuOpen} ref={buttonRef} toggle={toggleMenu} size={25} />
                 </StyledHamburgerButton>
 
                 <StyledSidebar menuOpen={menuOpen} aria-hidden={!menuOpen} tabIndex={menuOpen ? 1 : -1}>
                     <nav ref={navRef}>
                         {navLinks && (
                             <ol>
-                                {navLinks.map(({ url, name }, i) => (
+                                {navLinks.map(({ url, name, location }, i) => (
                                     <li key={i}>
-                                        <Link to={url} onClick={() => setMenuOpen(false)}>
-                                            {name}
-                                        </Link>
+                                        {location === "internal" ? (
+                                            <Link to={url} onClick={() => setMenuOpen(false)}>
+                                                {name}
+                                            </Link>
+                                        ) : (
+                                            <a href={url} target="_blank" rel="noreferrer">{name}</a>
+                                        )}
                                     </li>
                                 ))}
                             </ol>

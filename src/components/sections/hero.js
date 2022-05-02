@@ -3,8 +3,9 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import { email, hero } from '../../config';
+import HeroParticles from '../HeroParticles';
 
-const HeroSection = styled.div`
+const HeroSection = styled.section`
         display: flex;
         justify-content: center;
         align-items: center;
@@ -32,25 +33,28 @@ const HeroSection = styled.div`
         margin: 20px 0 0;
         max-width: 540px;
     }
-    .cta-btn{
-        color: #64ffda;
-        background-color: transparent;
-        border: 1px solid #64ffda;
-        border-radius: 4px;
-        padding: 1.25rem 1.75rem;
+    .cta-btn {
+        color: var(--color-btn-primary-text);
+        background-color: var(--color-btn-primary-bg);
+        border-color: var(--color-btn-primary-border);
+        box-shadow: var(--color-btn-primary-shadow), var(--color-btn-primary-inset-shadow);
+        border-radius: 6px;
+        padding: 0.75rem 1.25rem;
         font-size: 14px;
-        font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-        line-height: 1;
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+        line-height: 20px;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+        /* transition: 100ms cubic-bezier(0.33, 1, 0.68, 1); */
+        transition: all 0.2s cubic-bezier(0.645,0.045,0.355,1);
         margin-top: 40px;
         
         &:hover,
         &:focus,
         &:active {
-            background-color: rgba(100,255,218,0.1);
+            background-color: var(--color-btn-primary-hover-bg);
             outline: none;
+            transform: scale(1.03);
         }
         &:after {
             display: none !important;
@@ -112,7 +116,7 @@ const StyledPic = styled.div`
         &:focus {
             background: transparent;
             outline: 0;
-            transform: scale(0.995);
+            transform: scale(0.99);
             box-shadow: 0 20px 5px -15px rgba(2,12,27,0.7);
             border-radius: inherit;
 
@@ -122,7 +126,7 @@ const StyledPic = styled.div`
                 border-radius: inherit;
             }
             .img {
-                filter: none;
+                filter: grayscale(60%);
                 mix-blend-mode: normal;
                 border-radius: inherit;
                 will-change: transform;
@@ -145,8 +149,14 @@ const StyledPic = styled.div`
     }
 `;
 
+const StyledParticleCanvas = styled.div`
+    opacity: ${props => props.canvasOpacity};
+`;
+
 const Hero = () => {
     const [isMounted, setIsMounted] = useState(false);
+    const [offset, setOffset] = useState(0);
+    const [particleOpacity, setParticleOpacity] = useState(1);
 
     useEffect(() => {
         setTimeout(() => setIsMounted(true), hero.animation.delay);
@@ -160,10 +170,28 @@ const Hero = () => {
 
     const elements = [top, middle, bottom, more, cta];
 
+    useEffect(() => {
+        const onScroll = () => setOffset(window.scrollY);
+        window.removeEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    useEffect(() => {
+        const heroHeight = document.getElementById('hero-section').offsetHeight;
+        let calculatedOpacity = 1 - Math.round((offset / heroHeight) * 100) / 100;
+        if (calculatedOpacity > 1) calculatedOpacity = 1;
+        if (calculatedOpacity < 0) calculatedOpacity = 0;
+        setParticleOpacity(calculatedOpacity);
+    }, [offset]);
+
     return (
         <TransitionGroup component={null}>
             <CSSTransition key={'hero-section'} classNames="fastfadeup" timeout={2000}>
-                <HeroSection>
+                <HeroSection id="hero-section">
+                    <StyledParticleCanvas canvasOpacity={particleOpacity}>
+                        <HeroParticles />
+                    </StyledParticleCanvas>
                     <HeroGrid>
                         <HeroGridChild>
                             <TransitionGroup component={null}>
@@ -181,6 +209,7 @@ const Hero = () => {
                                                     alt="Headshot"
                                                     style={{ borderRadius: '25px' }}
                                                     imgStyle={{ borderRadius: '25px' }}
+                                                    placeholder="blurred"
                                                 />
                                             </div>
                                         </StyledPic>

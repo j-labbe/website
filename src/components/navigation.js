@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { navLinks } from '../config';
-import { IconLogo } from '../assets/images';
 import MobileNav from './mobilenav';
 
 const Header = styled.header`
@@ -18,7 +17,7 @@ const Header = styled.header`
     padding: 0px 50px;
     width: 100%;
     height: 100px;
-    background-color: ${props => (props.isMounted ? `rgba(10, 25, 47, 0.75);` : 'transparent')};
+    background-color: ${props => (props.isMounted ? `rgba(4, 13, 33, 0.75)` : 'transparent')};
     backdrop-filter: blur(10px);
     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
     filter: none !important;
@@ -41,7 +40,7 @@ const Nav = styled.nav`
     align-items: center;
     position: relative;
     width: 100%;
-    color: #ccd6f6;
+    color: #8892b0;
     font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
     counter-reset: item 0;
     z-index: 12;
@@ -52,30 +51,11 @@ const Nav = styled.nav`
         justify-content: center;
         -webkit-box-align: center;
         align-items: center;
-
-        a{
-            color: #64ffda;
-            width: 42px;
-            height: 42px;
-
-            & img {
-                transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-            }
-
-            &:hover,
-            &:focus{
-                img{
-                    background-color: rgba(100,255,218,0.1);
-                    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-                    border-radius: 40px;
-                }
-            }
-            svg{
-                fill: none;
-                transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-                user-select: none;
-            }
-        }
+        font-family: 'Alliance No.1', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        font-weight: 800;
+        cursor: default;
+        letter-spacing: 0.03em;
+        margin: 0;
     }
 `;
 
@@ -153,20 +133,6 @@ const Navigation = ({ isHome }) => {
     const timeout = isHome ? 2000 : 0;
     const fadeClass = isHome ? 'fade' : '';
     const fadeDownClass = isHome ? 'fadedown' : '';
-
-    const Logo = (
-        <div className="logo" tabIndex="-1">
-            {isHome ? (
-                <a href="/" aria-label="home">
-                    <img src={IconLogo} alt="Home" />
-                </a>
-            ) : (
-                <Link to="/" aria-label="home">
-                    <IconLogo />
-                </Link>
-            )}
-        </div>
-    );
     const resumeLink = (''
         // <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener norefferer">Resume</a>
     );
@@ -178,7 +144,7 @@ const Navigation = ({ isHome }) => {
                 <TransitionGroup component={null}>
                     {isMounted && (
                         <CSSTransition classNames={fadeClass} timeout={timeout}>
-                            <>{Logo}</>
+                            <h4 className="logo"><Link to="/">Jack Labbe</Link></h4>
                         </CSSTransition>
                     )}
                 </TransitionGroup>
@@ -187,10 +153,14 @@ const Navigation = ({ isHome }) => {
                         <TransitionGroup component={null}>
                             {isMounted &&
                                 navLinks &&
-                                navLinks.map(({ url, name }, i) => (
+                                navLinks.map(({ url, name, location }, i) => (
                                     <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
                                         <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                                        {location === 'internal' ? (
                                             <Link to={url}>{name}</Link>
+                                        ) : (
+                                            <a href={url} target="_blank" rel="noreferrer">{name}</a>
+                                        )}
                                         </li>
                                     </CSSTransition>
                                 ))}
