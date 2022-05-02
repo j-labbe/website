@@ -56,7 +56,27 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     // const tagTemplate = path.resolve
 }
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+    if (stage === "build-html") {
+        actions.setWebpackConfig({
+            module: {
+                rules: [
+                    {
+                        test: /miniraf/,
+                        use: loaders.null()
+                    },
+                    {
+                        test: /scrollreveal/,
+                        use: loaders.null(),
+                    },
+                    {
+                        test: /animejs/,
+                        use: loaders.null(),
+                    }
+                ]
+            }
+        })
+    }
     actions.setWebpackConfig({
         resolve: {
             alias: {
@@ -66,5 +86,5 @@ exports.onCreateWebpackConfig = ({ actions }) => {
                 fs: false
             }
         }
-    })
+    });
 }
