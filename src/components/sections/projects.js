@@ -260,7 +260,8 @@ const Projects = ({ fullPage }) => {
 
     const truncate = (str, n) => str && typeof str === "string" && str.length > n ? str.substring(0, n - 1) + '...' : str;
 
-    const isHome = window && window.location.pathname === '/';
+    const isBrowser = () => typeof window !== "undefined";
+    const isHome = isBrowser() && window.location.pathname === '/';
 
     // TODO: show more button (only needed for more than eight projects)
     const [showMore, setShowMore] = useState(false);

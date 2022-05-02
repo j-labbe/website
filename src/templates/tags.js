@@ -258,7 +258,8 @@ const TagPage = ({ data, pageContext, location }) => {
 
     const posts = data.allMdx.edges || [];
 
-    const isHome = window && window.location.pathname === '/';
+    const isBrowser = () => typeof window !== "undefined"
+    const isHome = isBrowser() && window.location.pathname === '/';
 
     // isMounted state only applies on fullpage renders of this component
     const [isMounted, setIsMounted] = useState(isHome);
