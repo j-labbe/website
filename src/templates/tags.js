@@ -257,8 +257,10 @@ const StyledTag = styled.div`
 const TagPage = ({ data, pageContext, location }) => {
 
     const posts = data.allMdx.edges || [];
-
+    
+    const truncate = (str, n) => str && typeof str === "string" && str.length > n ? str.substring(0, n - 1) + '...' : str;
     const isBrowser = () => typeof window !== "undefined"
+
     const isHome = isBrowser() && window.location.pathname === '/';
 
     // isMounted state only applies on fullpage renders of this component
@@ -311,7 +313,7 @@ const TagPage = ({ data, pageContext, location }) => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="project-description">{project.node.frontmatter.description}</div>
+                                                <div className="project-description">{project.node.frontmatter.description && truncate(project.node.frontmatter.description, 56)}</div>
                                                 <div className="footer">
                                                     <StyledTags>
                                                         {project.node.frontmatter.tags && project.node.frontmatter.tags.split(",").map((tag, i) => (

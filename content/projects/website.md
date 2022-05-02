@@ -1,7 +1,7 @@
 ---
 title: Website
 date: 2022-05-02T16:20:29Z
-description: The home for everything I create, open source on GitHub. This is a long ass description to see what happens.
+description: The home for everything I create.
 projectLink: https://jacklabbe.com
 image: none
 tags: javascript,gatsby
