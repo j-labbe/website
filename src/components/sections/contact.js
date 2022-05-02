@@ -5,7 +5,7 @@ import { scrollRevealConfig, email } from '../../config';
 import { contact } from '../../config';
 
 const ContactSection = styled.section`
-    max-widith: 600px;
+    max-width: 600px;
     margin: 0 auto 100px;
     text-align: center;
     display: flex;
@@ -32,30 +32,37 @@ const ContactSection = styled.section`
         &:after{
             display: none;
         }
+        .norm {
+            color: #fff;
+        }
     }
 
     .title {
         font-size: clamp(40px, 5vw, 60px);
+        font-weight: 800;
     }
     .email-link {
-        color: #64ffda;
-        background-color: transparent;
-        border: 1px solid #64ffda;
-        border-radius: 4px;
-        padding: 1.25rem 1.75rem;
+        color: var(--color-btn-primary-text);
+        background-color: var(--color-btn-primary-bg);
+        border-color: var(--color-btn-primary-border);
+        box-shadow: var(--color-btn-primary-shadow), var(--color-btn-primary-inset-shadow);
+        border-radius: 6px;
+        padding: 0.75rem 1.25rem;
         font-size: 14px;
-        font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
-        line-height: 1;
+        font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+        line-height: 20px;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-        margin-top: 50px;
+        /* transition: 100ms cubic-bezier(0.33, 1, 0.68, 1); */
+        transition: all 0.2s cubic-bezier(0.645,0.045,0.355,1);
+        margin-top: 30px;
         
         &:hover,
         &:focus,
         &:active {
-            background-color: rgba(100,255,218,0.1);
+            background-color: var(--color-btn-primary-hover-bg);
             outline: none;
+            transform: scale(1.03);
         }
         &:after {
             display: none !important;
@@ -74,7 +81,7 @@ const Contact = () => {
     }, [revealContact]);
     return (
         <ContactSection id="contact" ref={revealContact}>
-            <h2 className="overline">02. What's Next?</h2>
+            <h2 className="overline">03. <span className="norm">What's Next?</span></h2>
             <h2 className="title">{contact.heading}</h2>
             <p>
                 {contact.blurb}

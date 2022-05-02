@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Loader from './loader';
-import Head from './head';
 import Navigation from './navigation';
 import { Helmet } from 'react-helmet';
 import Footer from './footer';
-
-if (typeof window !== 'undefined') {
-    require('smooth-scroll')('a[href*="#"]');
-}
+import Seo from './Seo';
 
 const Layout = ({ children, location }) => {
+    
     const isHome = location.pathname === '/';
     const [isLoading, setIsLoading] = useState(isHome);
 
@@ -20,18 +17,22 @@ const Layout = ({ children, location }) => {
             setTimeout(() => {
                 const e = document.getElementById(id);
                 if (e) {
-                    e.scrollIntoView();
+                    const yOffset = -160;
+                    const y = e.getBoundingClientRect().top + window.scrollY + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                 }
             }, 0);
         }
     }, [isLoading, location]);
 
+    const hash = location.hash && location.hash.length > 0 ? location.hash.substring(1).charAt(0).toUpperCase() + location.hash.slice(2) : '';
+
     return (
         <div>
             <Helmet bodyAttributes={{ class: !isLoading ? 'loaded' : 'hidden' }} />
-            <Head location={location} />
+            <Seo title={`Jack Labbe${(hash ? ` - ${hash}` : ``)}`} />
             <div id="root">
-                {isLoading && isHome ? (
+                {isLoading ? (
                     <Loader onFinishLoad={() => setIsLoading(false)} />
                 ) : (
                     <div className="generalContainer">

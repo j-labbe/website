@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import revealOnScroll from '../../utils/scrollReveal';
-import { StaticImage } from 'gatsby-plugin-image';
 import { scrollRevealConfig, about } from '../../config';
 
 const AboutStyle = styled.div`
     max-width: 1000px;
     margin: auto;
+    margin-bottom: 100px;
     .inner {
         display: flex;
         flex-direction: column;
@@ -44,9 +44,11 @@ const StyledText = styled.div`
             cursor: default;
             transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
             &:before {
-                content: '▹';
+                /* content: '▹'; */
+                content: '⦿';
                 position: absolute;
                 left: 0;
+                bottom: 3.5px;
                 color: #64ffda;
                 font-size: 14px;
                 line-height: 12px;
@@ -59,58 +61,58 @@ const StyledText = styled.div`
     }
 `;
 
-const StyledPic = styled.div`
-    position: relative;
-    max-width: 600px;
+// const StyledPic = styled.div`
+//     position: relative;
+//     max-width: 600px;
 
-    @media (max-width: 768px) {
-        margin: 0 auto 40px;
-    }
+//     @media (max-width: 768px) {
+//         margin: 0 auto 40px;
+//     }
 
-    .wrapper{
-        box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
-        transform: scale(1);
-        transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-        display: block;
-        position: relative;
-        width: 100%;
-        border-radius: 25px;
-        background-color: transparent;
+//     .wrapper{
+//         box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+//         transform: scale(1);
+//         transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+//         display: block;
+//         position: relative;
+//         width: 100%;
+//         border-radius: 25px;
+//         background-color: transparent;
 
-        &:hover,
-        &:focus {
-            background: transparent;
-            outline: 0;
-            transform: scale(0.995);
-            box-shadow: 0 20px 5px -15px rgba(2,12,27,0.7);
+//         &:hover,
+//         &:focus {
+//             background: transparent;
+//             outline: 0;
+//             transform: scale(0.995);
+//             box-shadow: 0 20px 5px -15px rgba(2,12,27,0.7);
 
-            &:after {
-                top: 15px;
-                left: 15px;
-            }
-            .img {
-                filter: none;
-                mix-blend-mode: normal;
-            }
-        }
-        .img-about {
-            position: relative;
-            border-radius: 25px;
-            filter: grayscale(80%) contrast(1);
-            max-width: 100%;
-            max-height: 100%;
-            transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-        }
-        &:before,
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            border-radius: 25px;
-            transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
-        }
-    }
-`;
+//             &:after {
+//                 top: 15px;
+//                 left: 15px;
+//             }
+//             .img {
+//                 filter: none;
+//                 mix-blend-mode: normal;
+//             }
+//         }
+//         .img-about {
+//             position: relative;
+//             border-radius: 25px;
+//             filter: grayscale(80%) contrast(1);
+//             max-width: 100%;
+//             max-height: 100%;
+//             transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+//         }
+//         &:before,
+//         &:after {
+//             content: '';
+//             display: block;
+//             position: absolute;
+//             border-radius: 25px;
+//             transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+//         }
+//     }
+// `;
 
 const About = () => {
 
@@ -126,11 +128,14 @@ const About = () => {
     return (
         <AboutStyle id="about" ref={revealAbout}>
             <h2 className="numbered-heading">
-                {about.heading}
+                <span className="number">01.</span>
+                <span className="text">
+                    {about.heading}
+                </span>
                 <div className="line"></div>
             </h2>
             <div className="inner">
-            <StyledPic>
+                {/* <StyledPic>
                     <div className="wrapper">
                         <StaticImage
                             className="img-about"
@@ -142,7 +147,7 @@ const About = () => {
                             alt="Jack in Action"
                         />
                     </div>
-                </StyledPic>
+                </StyledPic> */}
                 <StyledText>
                     <div>
                         {bio && bio.map((text, i) => (
