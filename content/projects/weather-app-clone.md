@@ -58,7 +58,7 @@ Specific challenges included:
 
 Specific details about files and directories in this project are as follows:
 
-<br>
+<br />
 
 ### `/static` - Static Assets
 Includes:
@@ -66,23 +66,23 @@ Includes:
 - client.js - Client-side JavaScript responsible for clock and search button handling
 - styles.css - Complete styling for application
 
-<br>
+<br />
 
 ### `/static/icons` - SF Symbols
 Directory that holds all symbols relevant to this project.
 
-<br>
+<br />
 
 ### `/templates` - HTML Templates
 Directory that holds all templates used by the application.
 
-<br>
+<br />
 
 ### `/templates/error.html` - Error Template
 Template responsible for displaying error messages a little bit prettier than default system error messages.
 Parameters passed utilizing Flask's `render_template` function.
 
-<br>
+<br />
 
 ### `/templates/layout.html` - General Layout
 Template that handles the general layout of the webpage.
@@ -97,12 +97,12 @@ Parameters passed utilizing Flask's `render_template` function.
 - `block main` - Main output for application.
 - `div footer` - Expanding footer section with search form.
 
-<br>
+<br />
 
 ### `/templates/output.html` - Application Output
 Template that is rendered with all the output including weather data.
 
-<br>
+<br />
 
 #### Notable Elements:
 - `block title` - City/town included in site title
@@ -113,30 +113,30 @@ Template that is rendered with all the output including weather data.
     - Includes time, icon, high and low for each day
     - Outputs a vertical list of horizonal elements (where each element has time, temp, etc.)
 
-<br>
+<br />
 
 ### `.gitignore` - Gitignore
 
-<br>
+<br />
 
 ### `LICENSE` - License for project (MIT)
 
-<br>
+<br />
 
 ### `Procfile` - Heroku
 Required for Heroku deployment. Tells the dyno what to do to run the app and what kind of service it is.
 `gunicorn` is used to run the application after being compiled by Heroku's services.
 
-<br>
+<br />
 
 ### `runtime.txt` - Heroku
 Tells dyno what version of Python to use.
 
-<br>
+<br />
 
 ### `requirements.txt` - Python requirements
 
-<br>
+<br />
 
 ### `app.py` - Main Flask application
 First the app checks for an environment variable called production. If it's present, other environment variables are loaded from `os.environ`, otherwise it uses `.env` to load from a `.env` file in the project root (this makes development easier, since all one does it add a new var to the `.env`, instead of exporting and whatnot. Especially useful for changing variables quickly).
@@ -165,7 +165,7 @@ The same is done for daily forecast.
 
 Lastly, the index route sets the body class for the current conditions, resets the timezone, and renders the output using the `render_template` method from Flask.
 
-<br>
+<br />
 
 ### `utils.py` - Utilities & reusable code
 The first module within `utils.py` is `DictObj`. This was sourced from [here](https://joelmccune.com/python-dictionary-as-object/). It allows dicts to be used as objects, making things easier to read and more succinct.
@@ -229,7 +229,7 @@ Calculates the hourly difference between two timezones using the `pendulum` libr
 
 Sourced from [here](https://stackoverflow.com/questions/46736529/how-to-compute-the-time-difference-between-two-time-zones-in-python).
 
-<br>
+<br />
 
 ## Design Choices
 
