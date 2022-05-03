@@ -72,7 +72,7 @@ module.exports = {
         {
             resolve: "gatsby-plugin-sitemap",
             options: {
-                exclude: ["/admin"]
+                excludes: ["/admin"]
             }
         }
     ],
