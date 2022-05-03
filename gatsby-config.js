@@ -68,6 +68,12 @@ module.exports = {
                 name: "img",
                 path: `${__dirname}/static/img`
             }
+        },
+        {
+            resolve: "gatsby-plugin-sitemap",
+            options: {
+                exclude: ["/admin"]
+            }
         }
     ],
 };

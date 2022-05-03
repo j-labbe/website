@@ -67,6 +67,7 @@ const StyledProjectHeader = styled.div`
         font-weight: 800;
     }
     h3 {
+        margin-top: 25px;
         text-align: center;
         font-weight: 400;
         color: #8892b0;
@@ -172,7 +173,7 @@ const ProjectTemplate = ({ data, location }) => {
             <GlobalStyle />
             <div className="fillHeight">
                 <Layout location={location}>
-                    <Seo title={`Jack Labbe - ${title}`} />
+                    <Seo title={`Jack Labbe - ${title}`} description={description} />
                     <StyledProjectContainer>
                         <TransitionGroup component={null}>
                             <CSSTransition key="project" timeout={2000} classNames="fastfadeup">

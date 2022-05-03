@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import { hero } from "../config";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import GlobalStyle from "../assets/styles/GlobalStyle";
+import { Helmet } from "react-helmet";
 
 const NFMainContainer = styled.main`
     display: flex;
@@ -56,6 +57,7 @@ const NotFoundPage = () => {
     return (
         <React.Fragment>
             <GlobalStyle />
+            <Helmet title="Jack Labbe - Not Found"></Helmet>
             <div className="fillHeight">
                 <TransitionGroup component={null}>
                     {isMounted && (

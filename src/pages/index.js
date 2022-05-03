@@ -13,7 +13,7 @@ const IndexPage = ({ location }) => {
         <React.Fragment>
             <GlobalStyle />
             <div className="fillHeight">
-                <Seo title="Jack Labbe - Home" />
+                <Seo title="Jack Labbe - Home" description={"Jack Labbe's website - view the homepage to see details"} />
                 <Layout location={location}>
                     <Hero />
                     <About />

@@ -6,6 +6,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Layout from '../components/layout';
 import Seo from '../components/Seo';
 import Project from '../components/Project';
+import GlobalStyle from "../assets/styles/GlobalStyle";
 
 const PostStyle = styled.div`
     max-width: 1000px;
@@ -102,6 +103,7 @@ const StyledPostsGrid = styled.div`
 const TagPage = ({ data, pageContext, location }) => {
 
     const posts = data.allMdx.edges || [];
+    const pageDescription = `Browse Jack Labbe's posts tagged #${pageContext.tag}`;
 
     const isBrowser = () => typeof window !== "undefined"
 
@@ -123,38 +125,41 @@ const TagPage = ({ data, pageContext, location }) => {
     // contains the full path
 
     return (
-        <div className="fillHeight">
-            <Seo title={`Jack Labbe - #${pageContext.tag}`} />
-            <Layout location={location}>
-                <PostStyle id="posts-with-tag">
-                    <div className="fullpage-heading">
-                        <h1>#{pageContext.tag}</h1>
-                    </div>
-                    <div className="inner">
-                        <div className="center-text">
-                            <h3>{posts.length} posts found</h3>
+        <React.Fragment>
+            <GlobalStyle />
+            <div className="fillHeight">
+                <Seo title={`Jack Labbe - #${pageContext.tag}`} description={pageDescription} />
+                <Layout location={location}>
+                    <PostStyle id="posts-with-tag">
+                        <div className="fullpage-heading">
+                            <h1>#{pageContext.tag}</h1>
                         </div>
-                        <StyledPostsGrid>
-                            <TransitionGroup component={null}>
-                                {isMounted && posts && posts.map((project, i) => (
-                                    <CSSTransition key={i} classNames="project-grid-transition" timeout={2000}>
-                                        <Project key={i} options={{
-                                            key: i,
-                                            title: project.node.frontmatter.title,
-                                            postLink: `/projects/${project.node.slug}`,
-                                            projectLink: project.node.frontmatter.projectLink,
-                                            description: project.node.frontmatter.description,
-                                            tags: project.node.frontmatter.tags,
-                                            truncateLength: 56
-                                        }} />
-                                    </CSSTransition>
-                                ))}
-                            </TransitionGroup>
-                        </StyledPostsGrid>
-                    </div>
-                </PostStyle>
-            </Layout>
-        </div>
+                        <div className="inner">
+                            <div className="center-text">
+                                <h3>{posts.length} posts found</h3>
+                            </div>
+                            <StyledPostsGrid>
+                                <TransitionGroup component={null}>
+                                    {isMounted && posts && posts.map((project, i) => (
+                                        <CSSTransition key={i} classNames="project-grid-transition" timeout={2000}>
+                                            <Project key={i} options={{
+                                                key: i,
+                                                title: project.node.frontmatter.title,
+                                                postLink: `/projects/${project.node.slug}`,
+                                                projectLink: project.node.frontmatter.projectLink,
+                                                description: project.node.frontmatter.description,
+                                                tags: project.node.frontmatter.tags,
+                                                truncateLength: 56
+                                            }} />
+                                        </CSSTransition>
+                                    ))}
+                                </TransitionGroup>
+                            </StyledPostsGrid>
+                        </div>
+                    </PostStyle>
+                </Layout>
+            </div>
+        </React.Fragment>
     );
 };
 
