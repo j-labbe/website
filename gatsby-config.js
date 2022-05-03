@@ -7,6 +7,29 @@ module.exports = {
     },
     plugins: [
         {
+            resolve: "gatsby-plugin-mdx",
+            options: {
+                extensions: ['.md', '.mdx'],
+                gatsbyRemarkPlugins: [
+                    {
+                        resolve: "gatsby-remark-images",
+                        options: {
+                            backgroundColor: "none",
+                            disableBgImage: true,
+                            linkImagesToOriginal: false,
+                            maxWidth: 650
+                        }
+                    },
+                    {
+                        resolve: "gatsby-remark-image-attributes",
+                        options: {
+                            dataAttributes: true
+                        }
+                    }
+                ]
+            }
+        },
+        {
             resolve: "gatsby-plugin-netlify-cms",
             options: {
                 modulePath: `${__dirname}/src/cms/cms.js`
@@ -25,12 +48,6 @@ module.exports = {
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-sitemap",
         {
-            resolve: "gatsby-plugin-mdx",
-            options: {
-                extensions: ['.md', '.mdx']
-            }
-        },
-        {
             resolve: "gatsby-source-filesystem",
             options: {
                 name: "pages",
@@ -43,6 +60,13 @@ module.exports = {
             options: {
                 name: "projects",
                 path: `${__dirname}/content/projects`
+            }
+        },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
+                name: "img",
+                path: `${__dirname}/static/img`
             }
         }
     ],

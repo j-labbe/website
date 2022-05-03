@@ -84,6 +84,10 @@ const StyledProjectContent = styled.div`
         margin: 30px 0;
     }
 
+    h3 {
+        margin: 30px 0;
+    }
+
     h4 {
         margin: 10px 0;
     }
@@ -91,13 +95,17 @@ const StyledProjectContent = styled.div`
     p {
         margin: 1em 0;
         line-height: 1.5;
-        color: #fff;
+        color: #eaeaea;
         font-size: 18px;
     }
 
     a {
         color: #8892b0;
         text-decoration: underline;
+        transition: color 0.2s cubic-bezier(0.645,0.045,0.355,1);
+        &:hover {
+            color: #64ffda;
+        }
     }
     ul, ol {
         li {
@@ -110,12 +118,28 @@ const StyledProjectContent = styled.div`
         }
     }
 
+    details {
+        margin: 10px 0;
+        summary {
+            cursor: pointer;
+            color: #8892b0;
+            transition: color 0.2s cubic-bezier(0.645,0.045,0.355,1);
+            &:hover {
+                color: #64ffda;
+            }
+        }
+    }
+
     code {
         color: #8892b0;
     }
 
     small {
         color: #8892b0;
+    }
+
+    img {
+        width: auto;
     }
 `;
 
@@ -179,7 +203,7 @@ const ProjectTemplate = ({ data, location }) => {
 
     const { frontmatter, body } = data.mdx;
     const { title, description, date, image, projectLink, tags } = frontmatter;
-    
+
     return (
         <Layout location={location}>
             <Seo title={`Jack Labbe - ${title}`} />

@@ -142,7 +142,7 @@ const StyledProject = styled.div`
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
 
             .project-title {
                 color: #fff;
@@ -221,8 +221,17 @@ const StyledTags = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: scroll;
     width: 100%;
+
+    scrollbar-color: transparent;
+    transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    &::-webkit-scrollbar {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
 `;
 
 const StyledTag = styled.div`

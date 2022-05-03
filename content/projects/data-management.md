@@ -141,7 +141,7 @@ The problem with React-Querybuilder + my somewhat complex database structure is 
 
 I crafted a four step method to process the Advanced Search queries:
 
-![Four Step Process](/img/four-step-advanced-search-process.png)
+![Four Step Process](/img/four-step-advanced-search.png)
 
 This four-step process took nearly two months to implement because of the speed and reliability requirements. I had it working not too long after initially building it using the first three steps, but it took 8-10x longer to query than it should have. Adding the fourth step for optimizing the query (and also generally optimizing the code) allows the entire system to produce a query result that compares the conditions across hundreds of thousands of entities in just a few seconds. The optimization made it much faster than the Basic Search method.
 
