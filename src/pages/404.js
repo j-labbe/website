@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from "react"
+import "../assets/styles/initialstate.css";
+import React, { useState, useEffect } from "react"
 import styled from "styled-components";
 import { Link } from "gatsby"
 import { hero } from "../config";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import GlobalStyle from "../assets/styles/GlobalStyle";
 
 const NFMainContainer = styled.main`
     display: flex;
@@ -50,21 +52,24 @@ const NotFoundPage = () => {
     useEffect(() => {
         const timeout = setTimeout(() => setIsMounted(true), hero.animation.delay);
         return () => clearTimeout(timeout);
-    },[]);
+    }, []);
     return (
-        <div>
-            <TransitionGroup component={null}>
-                {isMounted && (
-                    <CSSTransition timeout={500} className="fadeup">
-                        <NFMainContainer className="fillheight">
-                            <NFTitle>404</NFTitle>
-                            <NFSub>Page Not Found</NFSub>
-                            <NFBtn to="/">Go Home</NFBtn>
-                        </NFMainContainer>
-                    </CSSTransition>
-                )}
-            </TransitionGroup>
-        </div>
+        <React.Fragment>
+            <GlobalStyle />
+            <div className="fillHeight">
+                <TransitionGroup component={null}>
+                    {isMounted && (
+                        <CSSTransition timeout={500} className="fadeup">
+                            <NFMainContainer className="fillheight">
+                                <NFTitle>404</NFTitle>
+                                <NFSub>Page Not Found</NFSub>
+                                <NFBtn to="/">Go Home</NFBtn>
+                            </NFMainContainer>
+                        </CSSTransition>
+                    )}
+                </TransitionGroup>
+            </div>
+        </React.Fragment>
     )
 }
 

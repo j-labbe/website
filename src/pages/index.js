@@ -1,5 +1,6 @@
+import "../assets/styles/initialstate.css";
 import React from 'react';
-import '../assets/styles/css/style.css';
+import GlobalStyle from '../assets/styles/GlobalStyle';
 import Layout from '../components/layout';
 import About from '../components/sections/about';
 import Hero from '../components/sections/hero';
@@ -9,15 +10,18 @@ import Seo from '../components/Seo';
 
 const IndexPage = ({ location }) => {
     return (
-        <div className="fillHeight">
-            <Seo title="Jack Labbe - Home" />
-            <Layout location={location}>
-                <Hero />
-                <About />
-                <Projects />
-                <Contact />
-            </Layout>
-        </div>
+        <React.Fragment>
+            <GlobalStyle />
+            <div className="fillHeight">
+                <Seo title="Jack Labbe - Home" />
+                <Layout location={location}>
+                    <Hero />
+                    <About />
+                    <Projects />
+                    <Contact />
+                </Layout>
+            </div>
+        </React.Fragment>
     );
 };
 

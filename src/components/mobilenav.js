@@ -42,7 +42,7 @@ const StyledSidebar = styled.aside`
         bottom: 0;
         right: 0;
         padding: 50px 10px;
-        width: min(75vw, 400px);
+        width: min(60vw, 400px);
         height: 100vh;
         outline: 0;
         background-color: #13203d;
@@ -50,7 +50,7 @@ const StyledSidebar = styled.aside`
         z-index: 9;
         transform: translateX(${props => (props.menuOpen ? 0 : 100)}vw);
         visibility: ${props => (props.menuOpen ? 'visible' : 'hidden')};
-        transition: all ${props => (props.menuOpen ? `600ms cubic-bezier(0.22, 1, 0.36, 1)` : `900ms cubic-bezier(0.25, 1, 0.5, 1)`)};
+        transition: all ${props => (props.menuOpen ? `500ms cubic-bezier(0, 0.55, 0.45, 1)` : `500ms cubic-bezier(0.65, 0, 0.35, 1)`)};
     }
 
     nav {
@@ -207,8 +207,8 @@ const MobileNav = () => {
                 <body className={menuOpen ? ' loaded darkblur' : ' loaded'} />
             </Helmet>
             <div ref={wrapperRef}>
-                <StyledHamburgerButton>
-                    <Hamburger toggled={menuOpen} ref={buttonRef} toggle={toggleMenu} size={25} />
+                <StyledHamburgerButton ref={buttonRef}>
+                    <Hamburger toggled={menuOpen} toggle={toggleMenu} size={25} />
                 </StyledHamburgerButton>
 
                 <StyledSidebar menuOpen={menuOpen} aria-hidden={!menuOpen} tabIndex={menuOpen ? 1 : -1}>

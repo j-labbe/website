@@ -155,7 +155,10 @@ This part of the project required working very closely with the President and VP
 
 Ultimately, though, it was up to me to design how the system would work in AWS. I constructed a basic system that isolates all resources within a VPC, and attached routing rules and security groups to limit outside access to the EC2 instance. That is about as much detail as I can go into without potentially compromising the security of the resources.
 
-### Closing
+## Phase 3
+Phase 3 is just general support for the application. Any revisions, tutorials, or expansions can be completed during this phase, which has a specific end date.
+
+## Closing
 
 It was an honor and a privilege to work on this project with the people who were involved. I had an absolute blast learning and growing myself along the way, in addition to building a really cool application which opens the door for this business to gain new insights into their data. In the future, this application could be extended to other areas of the organization and feature a full dashboard with realtime insights. That was a little above the scope of this project, however.
 

@@ -1,0 +1,70 @@
+@font-face {
+    font-family: "SF Mono";
+    src: local("SF Mono"), local("SFMono"), local("SF-Mono"), url("../fonts/SFMono/SFMono-Regular.woff2") format("woff2"),
+        url("../fonts/SFMono/SFMono-Regular.woff") format("woff"),
+        url("../fonts/SFMono/SFMono-Regular.ttf") format("truetype");
+    /* Safari, Android, iOS */
+    font-weight: 400;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "SF Mono";
+    src: local("SF Mono Regular Italic"), local("SFMonoRegularItalic"), local("SF-Mono-Regular-Italic"),
+        local("SFMono-RegularItalic"), local("SFMono Regular-Italic"),
+        url("../fonts/SFMono/SFMono-RegularItalic.woff2") format("woff2"),
+        url("../fonts/SFMono/SFMono-RegularItalic.woff") format("woff"),
+        url("../fonts/SFMono/SFMono-RegularItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+    font-weight: 400;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "SF Mono";
+    src: local("SF Mono Semibold"), local("SFMonoSemibold"), local("SF-Mono-Semibold"),
+        url("../fonts/SFMono/SFMono-Semibold.woff2") format("woff2"),
+        url("../fonts/SFMono/SFMono-Semibold.woff") format("woff"),
+        url("../fonts/SFMono/SFMono-Semibold.ttf") format("truetype");
+    /* Safari, Android, iOS */
+    font-weight: 600;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "SF Mono";
+    src: local("SF Mono Semibold Italic"), local("SFMonoSemiboldItalic"), local("SF-Mono-Semibold-Italic"),
+        local("SFMono-SemiboldItalic"), local("SFMono Semibold-Italic"),
+        url("../fonts/SFMono/SFMono-SemiboldItalic.woff2") format("woff2"),
+        url("../fonts/SFMono/SFMono-SemiboldItalic.woff") format("woff"),
+        url("../fonts/SFMono/SFMono-SemiboldItalic.ttf") format("truetype");
+    /* Safari, Android, iOS */
+    font-weight: 600;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/Alliance-No-1-Regular.woff2") format("woff2");
+    font-display: fallback;
+}
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: bold;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/Alliance-No-1-ExtraBold.woff2") format("woff2");
+    font-display: fallback;
+}
+
+html,
+body {
+    background-color: #040d21;
+}
