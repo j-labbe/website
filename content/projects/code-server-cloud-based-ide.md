@@ -1,7 +1,7 @@
 ---
 title: Code-Server - Cloud-Based IDE
 date: 2022-05-21T12:01:48.762Z
-description: Why and how I set uo a cloud-based VSCode instance.
+description: Why and how I set up a cloud-based VSCode instance.
 image: /img/vs-code.png
 tags: aws,linux,vscode
 ---
@@ -201,7 +201,7 @@ sudo nano /etc/nginx/nginx.conf
 
 NGINX configs can become very complicated. Below is a copy of my entire config. Don't worry, I'll break it down afterwards.
 
-```
+```sh
 user www-data;
 worker_processes auto;
 pid /run/nginx.pid;
