@@ -21,7 +21,7 @@ I ended up switching back to cloud storage. I tried almost every solution under 
 
 After about a year of using cloud storage, I decided enough was enough. I began researching and putting together a home server build that minimizes costs while still being powerful enough for tasks such as virtual machines and 4K Plex transcoding running simultaneously. Synology NASes are generally only powerful enough for light Plex utilization, and, to my knowledge, do not have support for virtual machines. Leveraging my knowledge of PC building from a few years ago, I decided to build a new server with consumer hardware. My goal was to spend less than the cost of a comparable Synology system that was capable of 4K Plex transcoding.
 
-![](/img/img_6713.jpg)
+![motherboard build](/img/img_6713.jpg)
 
 Here's the list of parts I chose:
 
@@ -51,7 +51,7 @@ Once the Array was up and running, I was off to the races!
 
 Since I first began my Unraid server, I have began running many Docker containers, each responsible for one decoupled task of a larger system. Below you can see some of the things I have running.
 
-![](/img/dashboard.png)
+![Unraid Dashboard](/img/dashboard.png)
 
 My usage of this server is almost daily. I run virtual machines on it for software I use in class, which helps extend the battery of my aging MacBook Pro, since all I do is maintain a connection with VNC. Additionally, I can connect from my phone or laptop to access some cloud services I have tunneled through Cloudflare (this will be a separate post). In short, Cloudflare tunnels allow me to not expose any ports on my home network and proxy all connections to prevent my IP address from being exposed. My home’s service with gigabit internet also helps clients connect without much waiting.
 Homelabs are meant to change and evolve over time. I use mine as a semi-production-testing system where I can learn how to create automated backups of critical files to AWS, learn and redo Docker networking, and begin learning the nuances of popular flavors of Linux by using virtual machines that I can break seven times over. The flexibility it provides to me makes it well worth the cost.
