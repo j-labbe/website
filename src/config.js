@@ -67,12 +67,11 @@ const config = {
     about: {
         heading: 'About Me',
         bio: [
-            'Hey! My name is Jack, and I am building the future of the web / software.',
-            'Right now I am a Finance and Business Intelligence & Analytics student at Saint Joseph\'s University in Philadelphia, PA. I also work as a freelance Software Engineer and IT Consultant.',
-            'In early 2022 I completed a remote Computer Science class at Harvard University that helped me deepen my knowledge of the inner-workings of computers.',
-            'Since 2021, I have worked with many companies around the United States building web apps to improve productivity and provide new insights.',
-            'As someone who is highly motivated to create excellent products, services, and experiences, I welcome any opportunity that comes my way.',
-            'Check out some of the technologies and platforms I\'ve been using recently:'
+            'Hey! My name is Jack.',
+            'I am a versatile, analytical, jack-of-all-trades person focused on using software systems to maximize value of resources within businesses, improve operating efficiency, and assist employees and customers with inefficient workflows.',
+            'Currently I am finishing my final semester at Saint Joseph’s University, double-majoring in Finance and Business Intelligence and Analytics.',
+            'I am currently seeking companies that desire gritty, hardworking, and highly motivated individuals set on making a meaningful impact.',
+            'Feel free to reach out if you have nay opportunities or if you would like to chat! Below is a list of technologies I am intimately familiar with, although the list is growing rapidly and will be updated frequently!'
         ],
         skills: [
             'JavaScript (ESNext)',
@@ -82,7 +81,7 @@ const config = {
             'React',
             'AWS',
             'Docker',
-            'Azure'
+            'Linux'
         ]
     },
     projects: {
