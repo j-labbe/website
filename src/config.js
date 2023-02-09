@@ -25,6 +25,13 @@ const config = {
             Logo: <IoLogoTiktok />
         }
     ],
+    // TODO (2/9/2023): announcements banner feature
+    // idea: figure out how to create announcements without requiring a redeploy in netlify
+    banner: {
+        show: false,
+        type: 'info',
+        message: ''
+    },
     navLinks: [
         {
             name: 'About',
@@ -58,10 +65,10 @@ const config = {
             text: 'Jack Labbe'
         },
         section3: {
-            text: 'Software Engineer, IT Consultant'
+            text: 'Software and IT Consultant'
         },
         section4: {
-            text: 'Finance and Business Intelligence & Analytics @ Saint Joseph\'s University'
+            text: 'Finance and Business Intelligence & Analytics Double Major @ Saint Joseph\'s University'
         }
     },
     about: {
