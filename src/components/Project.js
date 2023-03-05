@@ -1,8 +1,10 @@
-import React from 'react';
+import 'react-tooltip/dist/react-tooltip.css'
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { IoInformationCircleOutline, IoGlobeOutline } from "react-icons/io5";
 import Tags from './Tags';
+import { Tooltip } from "react-tooltip";
 
 const StyledProject = styled.div`
     position: relative;
@@ -35,10 +37,16 @@ const StyledProject = styled.div`
             /* margin-bottom: 35px; */
             transform: translateY(-10px);
 
-            .project-description {
+            /* .project-description {
                 color: #64ffda;
-            }
+            } */
 
+        }
+
+        .cardAsLink {
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
         }
 
         .header {
@@ -61,7 +69,7 @@ const StyledProject = styled.div`
                 align-items: center;
                 justify-content: center;
 
-                .project-link a {
+                .project-link .external {
                     color: #8892b0;
                     margin: 0 3px;
                     transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
@@ -117,7 +125,7 @@ const StyledProject = styled.div`
         background-color: #13203d;
         width: 100%;
         max-height: 50px;
-        padding: 10px;
+        padding: 10px 7px 0 7px;
         border-bottom-right-radius: 10px;
         border-bottom-left-radius: 10px;
     }
@@ -128,7 +136,17 @@ const Project = ({ options }) => {
 
     const { key, title, postLink, projectLink, description, tags, revealInstance, truncateLength, tagMargin } = options;
 
+    // postLink is the local destination
+    // projectLink is an optional, external destination
+
     const truncate = (str, n) => str && typeof str === "string" && str.length > n ? str.substring(0, n - 1) + '...' : str;
+
+    // Disable the card link from activating if hovering over the projectLink button
+    // True: postLink
+    // false: projectLink
+    const [cardLink, setCardLink] = useState(true);
+    
+    const navigation = () => cardLink ? navigate(postLink) : window.open(projectLink, "_blank");
 
     return (
         <StyledProject
@@ -136,28 +154,35 @@ const Project = ({ options }) => {
             ref={revealInstance ? el => revealInstance.current = el : undefined}
             style={{ transitionDelay: `${key + 1}00ms` }}>
             <div className="project-inner">
-                <div className="header">
-                    <div className="project-title">
-                        {title}
-                    </div>
-                    <div className="links">
-                        <div className="project-link">
-                            {projectLink && (
-                                <a href={projectLink} target="_blank" rel="noreferrer"><IoGlobeOutline /></a>
-                            )}
+                <div onClick={navigation} className="cardAsLink">
+                    <div className="header">
+                        <div className="project-title">
+                            {title}
                         </div>
-                        <div className="project-link">
-                            {postLink && (
-                                <Link to={postLink}><IoInformationCircleOutline /></Link>
-                            )}
+                        <div className="links">
+                            <div className="project-link">
+                                {projectLink && (
+                                        <div
+                                            className="external"
+                                            onMouseEnter={() => setCardLink(false)} 
+                                            onMouseLeave={() => setCardLink(true)}
+                                            data-tooltip-id="external-link"
+                                            data-tooltip-content="Visit External Link"
+                                            >
+                                                <IoGlobeOutline />
+                                        </div>
+                                )}
+                                <Tooltip id="external-link" style={{fontSize: 14}}/>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="project-description">
-                    {description && truncate(description, truncateLength)}
-                </div>
-                <div className="footer">
-                    <Tags tags={tags} margin={tagMargin || 0} />
+                    <div className="project-description">
+                        {description && truncate(description, truncateLength)}
+                    </div>
+                    {/* TODO: change tags navigation to navigate() function, rather than <Link></Link>*/}
+                    <div className="footer">
+                        <Tags tags={tags} margin={tagMargin || 0} />
+                    </div>
                 </div>
             </div>
         </StyledProject>

@@ -6,7 +6,6 @@ const StyledTags = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
     overflow-x: scroll;
     width: 100%;
 
@@ -24,11 +23,12 @@ const StyledTag = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(21, 33, 59);
+    background-color: rgb(31, 43, 69);
     height: 20px;
     font-size: 14px;
     margin: ${props => props.margin ? `${props.margin}` : `0`}px;
     border-radius: 10px;
+    margin: 0 3px;
     margin-bottom: 30px;
     color: #8892b0;
     cursor: pointer;

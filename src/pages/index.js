@@ -1,4 +1,5 @@
 import "../assets/styles/initialstate.css";
+import 'react-tooltip/dist/react-tooltip.css'
 import React from 'react';
 import GlobalStyle from '../assets/styles/GlobalStyle';
 import Layout from '../components/layout';

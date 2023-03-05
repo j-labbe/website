@@ -1,4 +1,5 @@
 import "../assets/styles/initialstate.css";
+import 'react-tooltip/dist/react-tooltip.css'
 import React, { useState, useEffect } from "react"
 import styled from "styled-components";
 import { Link } from "gatsby"
