@@ -1,8 +1,8 @@
 import 'react-tooltip/dist/react-tooltip.css'
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link, navigate } from 'gatsby';
-import { IoInformationCircleOutline, IoGlobeOutline } from "react-icons/io5";
+import { navigate } from 'gatsby';
+import { IoGlobeOutline } from "react-icons/io5";
 import Tags from './Tags';
 import { Tooltip } from "react-tooltip";
 
