@@ -10,19 +10,9 @@ const config = {
             Logo: <IoLogoGithub />
         },
         {
-            name: 'Instagram',
-            url: 'https://instagram.com/jack.labbe',
-            Logo: <IoLogoInstagram />
-        },
-        {
             name: 'LinkedIn',
             url: 'https://linkedin.com/in/jack-labbe/',
             Logo: <IoLogoLinkedin />
-        },
-        {
-            name: 'TikTok',
-            url: 'https://tiktok.com/@sheetwizard',
-            Logo: <IoLogoTiktok />
         }
     ],
     // TODO (2/9/2023): announcements banner feature
