@@ -141,12 +141,12 @@ const Project = ({ options }) => {
 
     const truncate = (str, n) => str && typeof str === "string" && str.length > n ? str.substring(0, n - 1) + '...' : str;
 
-    // Disable the card link from activating if hovering over the projectLink button
-    // True: postLink
-    // false: projectLink
-    const [cardLink, setCardLink] = useState(true);
-    
-    const navigation = () => cardLink ? navigate(postLink) : window.open(projectLink, "_blank");
+    // Prevent parent onClick handler - thanks Mike Talbot
+    const preventParent = (fn, defaultOnly) => (e, ...params) => {
+        e && e.preventDefault();
+        !defaultOnly && e && e.stopPropagation();
+        fn(e, ...params);
+    }
 
     return (
         <StyledProject
@@ -154,7 +154,7 @@ const Project = ({ options }) => {
             ref={revealInstance ? el => revealInstance.current = el : undefined}
             style={{ transitionDelay: `${key + 1}00ms` }}>
             <div className="project-inner">
-                <div onClick={navigation} className="cardAsLink">
+                <div onClick={() => navigate(postLink)} className="cardAsLink">
                     <div className="header">
                         <div className="project-title">
                             {title}
@@ -162,15 +162,14 @@ const Project = ({ options }) => {
                         <div className="links">
                             <div className="project-link">
                                 {projectLink && (
-                                        <div
+                                        <a
                                             className="external"
-                                            onMouseEnter={() => setCardLink(false)} 
-                                            onMouseLeave={() => setCardLink(true)}
+                                            onClick={preventParent(() => window.open(projectLink, "_blank"))}
                                             data-tooltip-id="external-link"
                                             data-tooltip-content="Visit External Link"
                                             >
                                                 <IoGlobeOutline />
-                                        </div>
+                                        </a>
                                 )}
                                 <Tooltip id="external-link" style={{fontSize: 14}}/>
                             </div>
