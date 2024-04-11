@@ -58,18 +58,14 @@ const config = {
             text: 'Software and IT Consultant'
         },
         section4: {
-            text: 'Finance and Business Intelligence & Analytics Double Major @ Saint Joseph\'s University'
+            text: ''
         }
     },
     about: {
         heading: 'About Me',
         bio: [
             'Hey! My name is Jack.',
-            'I am a versatile, analytical, jack-of-all-trades guy focused on using software systems to maximize value of resources within businesses, improve operating efficiency, and assist employees and customers with inefficient workflows.',
-            'Currently I am finishing my final semester at Saint Joseph’s University, double-majoring in Finance and Business Intelligence and Analytics.',
-            'I am currently seeking companies that desire gritty, hardworking, and highly motivated individuals set on making a meaningful impact.',
-            'Feel free to reach out if you have nay opportunities or if you would like to chat! Below is a list of technologies I am intimately familiar with, although the list is growing rapidly and will be updated frequently!',
-            ''
+            'As a passionate technology enthusiast, I strive to provide clients with the latest and greatest technology solutions. From Data Warehouses and Custom ETL Pipelines to dynamic frontend user-facing experiences, my goal is to empower clients to understand their data and users, and enable them to push the boundaries of their business.'
         ],
         skills: [
             'JavaScript (ESNext)',
